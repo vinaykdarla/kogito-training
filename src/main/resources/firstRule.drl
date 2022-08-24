@@ -1,0 +1,31 @@
+package com.test.vnay;
+
+unit RuleUnit1;
+
+import com.test.vnay.Customer;
+import com.test.vnay.Response;
+
+dialect "mvel" 
+
+rule "My First Rule"
+
+when
+	$customer:/customer[name != null];
+	$response:/response;
+then
+$response.setInScope(true);
+$response.setReason("Valid Customer");
+	System.out.println("I'm in my first rule!!!");
+end
+
+rule "My Second Rule"
+
+when
+	$customer:/customer[name == null];
+	$response:/response;
+then
+$response.setInScope(false);
+$response.setReason("InValid Customer- Name");
+	System.out.println("I'm in my first rule!!!");
+end
+
