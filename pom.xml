@@ -16,6 +16,7 @@
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
     <version.org.drools>8.26.0.Beta</version.org.drools>
+    <cucumber-version>6.5.0</cucumber-version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -60,9 +61,27 @@
       <artifactId>kogito-drools</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.drools</groupId>
-      <artifactId>drools-decisiontables</artifactId>
-    </dependency>
+    <groupId>org.kie.kogito</groupId>
+    <artifactId>drools-decisiontables</artifactId>
+    <version>0.12.0</version>
+</dependency>
+<dependency>
+  <groupId>io.cucumber</groupId>
+  <artifactId>cucumber-java</artifactId>
+  <version>${cucumber-version}</version>
+  <scope>test</scope>
+</dependency> 
+<dependency>
+  <groupId>io.cucumber</groupId>
+  <artifactId>cucumber-junit</artifactId>
+  <version>${cucumber-version}</version>
+  <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>io.quarkiverse.cucumber</groupId>
+    <artifactId>quarkus-cucumber</artifactId>
+    <version>0.4.0</version>
+</dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-openapi</artifactId>

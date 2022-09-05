@@ -7,6 +7,9 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 
@@ -22,8 +25,10 @@ public class QuarkusFirstTest {
           .then().extract().response();
 		resMap = res.as(Map.class);
 		Object resp = resMap.get("response");
-		
-		System.out.println("res --> "+resp);
+		Gson gson = new Gson();
+		JsonElement jsonElement = gson.toJsonTree(resp);
+		Response response = gson.fromJson(jsonElement, Response.class);
+		System.out.println("res --> "+ response);
     }
 
 }
